@@ -1,23 +1,19 @@
 # gcloud-kubectl
 
-gcloud-kubectl is a Docker images to establish connection to a Kubernetes cluster running on Google Cloud with exposed SSH port.
+**gcloud-kubectl** is a [Docker](https://www.docker.com/) image to authorize [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command line tool, to connect to a [Kubernetes](https://kubernetes.io/) cluster running on [Google Cloud](https://cloud.google.com/).
 
-It makes it possible to execute `kubectl` remote commands.
+**gcloud-kubectl** container exposes [SSH](https://www.ssh.com/ssh/) port to make it possible to execute `kubectl` commands remotely.
 
 ## Variables (required)
 
-`SSH_KEY` 
-public RSA key file authorized to connect to container via SSH port
-`KUBE_AUTH`
-Google service account json key file with privileges to manage Kubernetes
-`KUBE_NAME`
-Kubernetes cluster name to connect to
-`KUBE_ZONE`
-Kubernetes cluster location zone
+- `SSH_KEY` Public RSA key file authorized to connect to container via SSH port
+- `KUBE_AUTH` [Google service account](https://cloud.google.com/iam/docs/understanding-service-accounts) json key file with privileges to manage Kubernetes
+- `KUBE_NAME` Kubernetes cluster name to connect to
+- `KUBE_ZONE` Kubernetes cluster location zone
 
 ## Example use
 
-Start container by mounting the volume from local file system containing RSA key and Google service account json key (/config in this example) into /auth directory inside the container.
+Start container by mounting the volume from local file system containing public RSA key and Google service account json key (/config in this example) into /auth directory inside the container.
 
 ```
 docker run --rm \
