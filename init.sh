@@ -20,8 +20,8 @@ mkdir -p /root/.ssh && \
 cat /auth/$SSH_KEY > /root/.ssh/authorized_keys && \
 chmod 600 /root/.ssh/authorized_keys
 
-export KUBE_PROJECT=$(cat /auth/$KUBE_AUTH | jq -r .project_id   >/dev/null 2>/dev/null)
-export KUBE_ACCOUNT=$(cat /auth/$KUBE_AUTH | jq -r .client_email >/dev/null 2>/dev/null)
+export KUBE_PROJECT=$(cat /auth/$KUBE_AUTH | jq -r .project_id)
+export KUBE_ACCOUNT=$(cat /auth/$KUBE_AUTH | jq -r .client_email)
 
 if [ -z "$KUBE_PROJECT" ] || [ -z "$KUBE_ACCOUNT" ]; then 
 	echo -e "\033[1;91mERROR:\033[0m invalid google service account json key"
