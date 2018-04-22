@@ -32,6 +32,10 @@ echo "Google Cloud Project: [ $KUBE_PROJECT ]"
 echo "Google Cloud Account: [ $KUBE_ACCOUNT ]"
 echo "Kubernetes cluster:   [ $KUBE_NAME ]"
 
+# setup gcloud environment
+gcloud config set project $KUBE_PROJECT
+gcloud config set compute/zone $KUBE_ZONE
+
 # establish connection to Kubernetes cluster for kubectl
 gcloud auth activate-service-account $KUBE_ACCOUNT --key-file=/auth/$KUBE_AUTH && \
 gcloud container clusters get-credentials $KUBE_NAME --zone $KUBE_ZONE --project $KUBE_PROJECT && \
