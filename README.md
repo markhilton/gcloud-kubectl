@@ -18,8 +18,8 @@ Start container by mounting the volume from local file system containing public 
 ```
 docker run --rm \
     -v /config:/auth \
-    -e SSH_KEY=id_rsa.pub \
-    -e KUBE_AUTH=gcloud-auth.json \
+    -e SSH_KEY=/auth/id_rsa.pub \
+    -e KUBE_AUTH=/auth/gcloud-auth.json \
     -e KUBE_NAME=kubernetes \
     -e KUBE_ZONE=us-central1-f \
     -ti crunchgeek/gcloud-kubectl
@@ -36,8 +36,8 @@ services:
         volumes:
             - /config/:/auth
         environment:
-            - SSH_KEY=id_rsa.pub
-            - KUBE_AUTH=gcloud-auth.json
+            - SSH_KEY=/auth/id_rsa.pub
+            - KUBE_AUTH=/auth/gcloud-auth.json
             - KUBE_NAME=kubernetes
             - KUBE_ZONE=us-central1-f
 ```
