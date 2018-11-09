@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+    gcloud_sdk:
+        image: crunchgeek/gcloud-kubectl
+        volumes:
+            - /config/:/auth
+        environment:
+            - SSH_KEY=/auth/id_rsa.pub
+            - KUBE_AUTH=/auth/gcloud-auth.json
+            - KUBE_NAME=kubernetes
+            - KUBE_ZONE=us-central1-f
