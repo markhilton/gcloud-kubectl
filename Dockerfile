@@ -1,7 +1,7 @@
 FROM google/cloud-sdk:latest
 
-RUN apt-get update && \
-	apt-get install -y openssh-server jq mysql-client && \
+RUN apt-get update -y && apt-get upgrade -y && \
+	apt-get install -y openssh-server jq mysql-client unzip && \
 	mkdir /var/run/sshd && \
 	sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin wihtout-password/' /etc/ssh/sshd_config
 

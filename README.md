@@ -6,10 +6,10 @@
 
 ## Variables (required)
 
-- `SSH_KEY` Public RSA key file authorized to connect to container via SSH port
-- `KUBE_AUTH` [Google service account](https://cloud.google.com/iam/docs/understanding-service-accounts) json key file with privileges to manage Kubernetes
-- `KUBE_NAME` Kubernetes cluster name to connect to
-- `KUBE_ZONE` Kubernetes cluster location zone
+-   `SSH_KEY` Public RSA key file authorized to connect to container via SSH port
+-   `KUBE_AUTH` [Google service account](https://cloud.google.com/iam/docs/understanding-service-accounts) json key file with privileges to manage Kubernetes
+-   `KUBE_NAME` Kubernetes cluster name to connect to
+-   `KUBE_ZONE` Kubernetes cluster location zone
 
 ## Example use
 
